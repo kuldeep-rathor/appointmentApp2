@@ -44,6 +44,29 @@
         // localStorage.setItem(obj.email, JSON.stringify(obj));
         // showUserOnScreen(obj);
       }
+      axios.get("https://crudcrud.com/api/915006e319af4b8595aa875cb89d6fa1/appointmentData")
+      .then((Response) => {
+        console.log(Response);
+        const data = Response.data;
+        for (let i = 0; i < data.length; i++) {
+          showUserOnScreen(data[i]); // Pass individual objects from the response data
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+      // window.addEventListener("DOMContentLoaded",()=>{
+      //   axios.get("https://crudcrud.com/api/915006e319af4b8595aa875cb89d6fa1/appointmentData")
+      //   .then((Response)=>{
+      //     console.log(Response)
+      //     for (var i=0; i<Response.data.length; i++)
+      //     showUserOnScreen(Response.data)
+      //   })
+      //   .catch((err)=>{
+      //     console.log(err)
+      //   })
+      // })
 
       function showUserOnScreen(obj) {
         const parentElem = document.getElementById('listofitems');
